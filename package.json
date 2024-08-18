@@ -4,16 +4,28 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "lint": "pnpm --recursive --parallel run lint",
+    "lint:fix": "pnpm --recursive --parallel run lint:fix",
+    "prepare": "husky install",
+    "prettier": "pnpm --recursive --parallel run prettier",
+    "prettier:fix": "pnpm --recursive --parallel run prettier:fix",
+    "start": "pnpm --recursive --parallel run start",
+    "test:dev": "pnpm --recursive run test:dev",
+    "typecheck": "pnpm --recursive --parallel run typecheck"
+  },
+  "eslintConfig": {
+    "root": true
   },
   "devDependencies": {
-    "prettier": "^3.2.5",
+    "husky": "^9.1.4",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.6",
     "turbo": "^2.0.14",
     "typescript": "^5.4.5"
   },
-  "packageManager": "pnpm@8.15.6",
+  "packageManager": "pnpm@9.1.4",
   "engines": {
-    "node": ">=18"
+    "node": ">=18 <=22.x"
   }
 }
